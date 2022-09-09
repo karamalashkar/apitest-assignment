@@ -1,6 +1,9 @@
 const button=document.querySelector('#but');
 const input=document.querySelector('#input');
 const text=document.querySelector('#text');
+const gender=document.querySelector('#gender');
+const age=document.querySelector('#age');
+const img=document.querySelector('#image');
 //button.disabled=true;
 
 button.addEventListener('click',()=>{
@@ -20,7 +23,7 @@ button.addEventListener('click',()=>{
         
         }).then(data =>{
         console.log(data);
-        document.write(data.gender);
+        gender.innerText=data.gender;
         }).catch((error)=> {
         console.log('rejected',err);
         })
@@ -30,7 +33,7 @@ button.addEventListener('click',()=>{
         return response.json();
         }).then(data =>{
         console.log(data);
-        document.write(data.age);
+        age.innerText=data.age;
         }).catch((error)=> {
         console.log('rejected',err);
         })
@@ -40,6 +43,7 @@ button.addEventListener('click',()=>{
         return response.json();
         }).then(data =>{
         console.log(data);
+        //document.write(JSON.parse(country_id));
         }).catch((error)=> {
         console.log('rejected',err);
         })
@@ -49,6 +53,8 @@ button.addEventListener('click',()=>{
         return response.json();
         }).then(data =>{
         console.log(data);
+        img.style.display='block';
+        img.src=data.message;
         }).catch((error)=> {
         console.log('rejected',err);
         })
