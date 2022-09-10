@@ -37,20 +37,19 @@
 }
 
 .input-name{
-    margin-top: 5%;
+    margin: 5% 0 10% 0;
     padding: 15px 20px;
     outline: none;
     font-size: 20px;
-    margin-bottom: 10%;
     width: 50%;
-}
-
-::placeholder{
-    font-size: 18px;
 }
 
 .input-name:focus{
     border: 2px solid navy;
+}
+
+::placeholder{
+    font-size: 18px;
 }
 
 .submit-button{
@@ -83,6 +82,10 @@
     }
 
     .title{
+        font-size: 35px;
+    }
+
+    .text{
         font-size: 20px;
     }
 
