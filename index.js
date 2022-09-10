@@ -3,8 +3,8 @@ const input=document.querySelector('#input');
 const text=document.querySelector('#text');
 const gender=document.querySelector('#gender');
 const age=document.querySelector('#age');
+const country=document.querySelector('#country');
 const img=document.querySelector('#image');
-//button.disabled=true;
 
 button.addEventListener('click',()=>{
     if(input.value == ''){
@@ -23,7 +23,7 @@ button.addEventListener('click',()=>{
         
         }).then(data =>{
         console.log(data);
-        gender.innerText=data.gender;
+        gender.innerText='Your predict gender: ' + data.gender;
         }).catch((error)=> {
         console.log('rejected',err);
         })
@@ -33,7 +33,7 @@ button.addEventListener('click',()=>{
         return response.json();
         }).then(data =>{
         console.log(data);
-        age.innerText=data.age;
+        age.innerText='Your predict age: ' + data.age;
         }).catch((error)=> {
         console.log('rejected',err);
         })
@@ -43,8 +43,7 @@ button.addEventListener('click',()=>{
         return response.json();
         }).then(data =>{
         console.log(data);
-        console.log(data.country[0].country_id);
-        console.log(data.country[1].country_id);
+        country.innerText='Your predict country: ' + data.country[0].country_id + ' - ' + data.country[1].country_id;
         }).catch((error)=> {
         console.log('rejected',err);
         })
