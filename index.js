@@ -43,7 +43,8 @@ button.addEventListener('click',()=>{
         return response.json();
         }).then(data =>{
         console.log(data);
-        //document.write(JSON.parse(country_id));
+        console.log(data.country[0].country_id);
+        console.log(data.country[1].country_id);
         }).catch((error)=> {
         console.log('rejected',err);
         })
