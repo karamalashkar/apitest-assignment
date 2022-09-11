@@ -19,6 +19,7 @@ var emailup=document.querySelector('#email-up');
 var passup=document.querySelector('#pass-up');
 var message=document.querySelector('#wrong-message');
 
+//logout action
 out.addEventListener('click',()=> {
     userinfo.style.display="flex";
     prediction.style.display="none";
@@ -45,6 +46,7 @@ buttonup.addEventListener('click',()=>{
     console.log('useradded');
 })    
 
+//check user information before login
 buttonin.addEventListener('click',()=>{
     var username=document.querySelector('#user-in').value;
     var password=document.querySelector('#pass-in').value;
@@ -78,6 +80,7 @@ button.addEventListener('click',()=>{
     else{
         text.innerText='Welcome '+input.value+' !';
 
+        //fetch in API to get a predicted IP for the user
         axios.get('https://api.ipify.org/?format=json').then((response) => {
         console.log('api',response.data.ip);
         ip.innerText='Your predict ip: ' + response.data.ip;
@@ -135,6 +138,7 @@ button.addEventListener('click',()=>{
         
 })
 
+//fetch in API to get a predicted activity for the user after cliking on bored button
 button_bored.addEventListener('click',()=>{
     axios.get('https://www.boredapi.com/api/activity').then((response) => {
         console.log('api',response.data.ip);
