@@ -11,9 +11,9 @@ const buttonup=document.querySelector('#button-up');
 
 //add user info to local storage
 buttonup.addEventListener('click',()=>{
-    const name=document.querySelector('#user-up').value;
-    const email=document.querySelector('#email-up').value;
-    const pass=document.querySelector('#pass-up').value;
+    var name=document.querySelector('#user-up').value;
+    var email=document.querySelector('#email-up').value;
+    var pass=document.querySelector('#pass-up').value;
 
     var user={
         username: name,
@@ -22,13 +22,23 @@ buttonup.addEventListener('click',()=>{
     };
 
     var json = JSON.stringify(user);
-    localStorage.setItem(user, json);
+    localStorage.setItem(name, json);
     console.log('useradded');
 })    
 
 buttonin.addEventListener('click',()=>{
-    const user=document.querySelector('#user-in').value;
-    const password=document.querySelector('#pass-in').value;
+    var username=document.querySelector('#user-in').value;
+    var password=document.querySelector('#pass-in').value;
+
+    console.log(username);
+    console.log(password);
+    var usero = localStorage.getItem(username);
+    var data = JSON.parse(usero);
+    //console.log('dataaaa'+data);
+
+    if(username == data.username && password == data.password){
+        console.log('Hello' + data.username);
+    }
 })
 
 //waiting click event on the button
