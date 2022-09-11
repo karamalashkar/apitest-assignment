@@ -6,6 +6,30 @@ const gender=document.querySelector('#gender');
 const age=document.querySelector('#age');
 const country=document.querySelector('#country');
 const img=document.querySelector('#image');
+const buttonin=document.querySelector('#button-in');
+const buttonup=document.querySelector('#button-up');
+
+//add user info to local storage
+buttonup.addEventListener('click',()=>{
+    const name=document.querySelector('#user-up').value;
+    const email=document.querySelector('#email-up').value;
+    const pass=document.querySelector('#pass-up').value;
+
+    var user={
+        username: name,
+        email: email,
+        password: pass,
+    };
+
+    var json = JSON.stringify(user);
+    localStorage.setItem(user, json);
+    console.log('useradded');
+})    
+
+buttonin.addEventListener('click',()=>{
+    const user=document.querySelector('#user-in').value;
+    const password=document.querySelector('#pass-in').value;
+})
 
 //waiting click event on the button
 button.addEventListener('click',()=>{
