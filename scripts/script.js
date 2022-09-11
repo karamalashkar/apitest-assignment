@@ -1,19 +1,38 @@
 //connect to all HTML tags needed
 const button=document.querySelector('#but');
+const button_bored=document.querySelector('#bored-button');
+const out=document.querySelector('#logout');
 const input=document.querySelector('#input');
 const text=document.querySelector('#text');
 const gender=document.querySelector('#gender');
 const age=document.querySelector('#age');
 const country=document.querySelector('#country');
 const img=document.querySelector('#image');
+const ip=document.querySelector('#ip');
+const bored=document.querySelector('#bored');
 const buttonin=document.querySelector('#button-in');
 const buttonup=document.querySelector('#button-up');
+const userinfo=document.querySelector('#userinfo');
+const prediction=document.querySelector('#prediction');
+var nameup=document.querySelector('#user-up');
+var emailup=document.querySelector('#email-up');
+var passup=document.querySelector('#pass-up');
+var message=document.querySelector('#wrong-message');
+
+out.addEventListener('click',()=> {
+    userinfo.style.display="flex";
+    prediction.style.display="none";
+})
 
 //add user info to local storage
 buttonup.addEventListener('click',()=>{
-    var name=document.querySelector('#user-up').value;
-    var email=document.querySelector('#email-up').value;
-    var pass=document.querySelector('#pass-up').value;
+    var name=nameup.value;
+    var email=emailup.value;
+    var pass=passup.value;
+
+    nameup.innerHTML=' ';
+    emailup.innerHTML=' ';
+    passup.innerHTML=' ';
 
     var user={
         username: name,
@@ -34,10 +53,16 @@ buttonin.addEventListener('click',()=>{
     console.log(password);
     var usero = localStorage.getItem(username);
     var data = JSON.parse(usero);
-    //console.log('dataaaa'+data);
 
     if(username == data.username && password == data.password){
         console.log('Hello' + data.username);
+        userinfo.style.display="none";
+        prediction.style.display="flex";
+    }
+
+    else{
+        message.innerText='Invalid login ! Try again';
+        message.style.color='red';
     }
 })
 
@@ -52,7 +77,14 @@ button.addEventListener('click',()=>{
     
     else{
         text.innerText='Welcome '+input.value+' !';
-        
+
+        axios.get('https://api.ipify.org/?format=json').then((response) => {
+        console.log('api',response.data.ip);
+        ip.innerText='Your predict ip: ' + response.data.ip;
+        }).catch((error)=> {
+            console.log('rejected',err);
+        })
+
         //fetch in API to get a predicted gender for the user
         fetch('https://api.genderize.io/?name='+input.value).then((response) => {
         console.log('gender',response);
@@ -101,4 +133,13 @@ button.addEventListener('click',()=>{
     
     }
         
+})
+
+button_bored.addEventListener('click',()=>{
+    axios.get('https://www.boredapi.com/api/activity').then((response) => {
+        console.log('api',response.data.ip);
+        bored.innerText='You are not bored anymore: \n' + response.data.activity;
+        }).catch((error)=> {
+            console.log('rejected',err);
+        })
 })

@@ -6,24 +6,25 @@
     </head>
     <body>
         <div class="main">
-        <div class="user-info"> 
-            <div class="sign-in">
-                <h1>SIGN IN</h1>
-                <input type="text" id="user-in" class="in" placeholder="Enter your name">
-                <input type="password" id="pass-in" class="in" placeholder="Enter your password">
-                <button class="submit-button sign" id="button-in">SIGN IN</button>
-            </div>    
-            
-            <div class="sign-in blue">
-                <h1>SIGN UP</h1>
-                <input type="text" id="user-up" class="in" placeholder="Enter your name">
-                <input type="email" id="email-up" class="in" placeholder="Enter your email">
-                <input type="password" id="pass-up" class="in" placeholder="Enter your password">
-                <button class="submit-button sign" id="button-up">SIGN UP</button>
+            <div class="user-info" id="userinfo"> 
+                <div class="sign-in">
+                    <h1>SIGN IN</h1>
+                    <input type="text" id="user-in" class="in" placeholder="Enter your name">
+                    <input type="password" id="pass-in" class="in" placeholder="Enter your password">
+                    <button class="submit-button sign" id="button-in">SIGN IN</button>
+                    <p id="wrong-message"></p>
+                </div>    
+                
+                <div class="sign-in blue">
+                    <h1>SIGN UP</h1>
+                    <input type="text" id="user-up" class="in" placeholder="Enter your name">
+                    <input type="email" id="email-up" class="in" placeholder="Enter your email">
+                    <input type="password" id="pass-up" class="in" placeholder="Enter your password">
+                    <button class="submit-button sign" id="button-up">SIGN UP</button>
+                </div>
             </div>
-        </div>
 
-            <div class="input-form">
+            <div class="input-form" id="prediction">
                 <div class="item">
                     <h1 class="title">Prediction</h1>
                     <center><p class="text" id="text">Please enter your name to get your prediction</p></center>
@@ -33,13 +34,21 @@
                     <button class="submit-button" id="but">START PREDICTION</button></center>
                 </div>
                 <div class="item">
+                    <center><h4 id="ip" class="text"></h4></center>
                     <center><p id="gender" class="text"></p></center>
                     <center><p id="age" class="text"></p></center>
                     <center><p id="country" class="text"></p></center>
                     <center><img id="image" class="image" src=""/></center>
                 </div>
+                <div class="item">
+                    <center><p class="label-bored">If you are bored click on BORED button</p></center>
+                    <center><p id="bored" class="bored-text"></p></center>
+                    <center><button id='bored-button' class="submit-button">BORED</button></center>
+                    <center><button id='logout' class="submit-button">LOGOUT</button></center>
+                </div>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="scripts/script.js"></script>
     </body>
 </html>
